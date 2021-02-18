@@ -1,5 +1,12 @@
 # Freestyle JavaScript Game
 
+![start](printscreens/start.png)
+
+
+
+![game](printscreens/game.png)
+
+
 ## Story
 
 By now you know the Javascript basics. Lets put it to a test and create something awesome, creative and motivating. The goal is to create a game in the browser. What type of game?
