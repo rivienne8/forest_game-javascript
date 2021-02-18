@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Forest Game</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- http://proger.i-forge.net/The_smallest_transparent_pixel/ -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="icon" href="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <script src="../static/js/game.js" defer></script>
+    <script src="https://kit.fontawesome.com/3f918afd0a.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div id="nav" class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">
+                    <i class="fas fa-tree color-2"></i>
+                    <i class="fas fa-tree color-1"></i>
+                    <i class="fas fa-tree color-3"></i>
+                    Forest Game</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                               role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            New Game
+                            </a>
+                            <div id="play-options" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a id="single-player" class="dropdown-item" href="#" data-toggle="collapse"
+                                    data-target=".navbar-collapse.show">Singleplayer</a>
+                                <a id="multi-player" class="dropdown-item" href="#" data-toggle="collapse"
+                                    data-target=".navbar-collapse.show">Multiplayer</a>
+                            </div>
+                        </li>
+                        <li class="nav-item active">
+                            <div id="nav-rules" class="nav-link nav-popup" data-toggle="collapse"
+                                 data-target=".navbar-collapse">Rules</div>
+                        </li>
+                        <li class="nav-item active">
+                            <div id="nav-highscores" class="nav-link nav-popup" data-toggle="collapse"
+                                 data-target=".navbar-collapse">Highscores</div>
+                        </li>
+                     </ul>
+                     <ul class="navbar-nav mx-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Next Level</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Levels
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Level 1</a>
+                                <a class="dropdown-item" href="#">Level 2</a>
+                                <a class="dropdown-item" href="#">Level 3</a>
+                            </div>
+                        </li>
+                     </ul>
+                     <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <div id="nav-authors" class="nav-link nav-popup" data-toggle="collapse"
+                                 data-target=".navbar-collapse">Authors</div>
+                        </li>
+                    </ul>
+                </div>
+                </nav>
+        </div>
+
+        <!-- form to popup by JS -->
+        <div id="form" class="container popup">
+            <form action="{{ url_for('add_player_name') }}" method="POST">
+                <div class="form">
+                  <div id="first-player">
+                      <label for="name-player1">Hello! What's your name?</label>
+                      <input type="text" class="form-input" id="name-player1" name="name" required>
+                  </div>
+                  <div id="second-player" class="second-player">
+                      <label for="name-player1">Hello! Player 2, what's your name?</label>
+                      <input type="text" class="form-input" id="name-player2" name="name2" required>
+                  </div>
+                </div>
+                <button id="newGame" type="submit" class="button-submit">Save</button>
+              </form>
+            <div class="trees">
+                <i class="fas fa-tree color-1"></i>
+                <i class="fas fa-tree color-2"></i>
+                <i class="fas fa-tree color-1"></i>
+                <i class="fas fa-tree color-3"></i>
+                <i class="fas fa-tree color-2"></i>
+            </div>
+        </div>
+
+        <!-- rules to popup by JS -->
+        <div id="rules" class="container popup">
+            <p>Rules</p>
+            <p>This is a place for rules. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur interdum, velit non dictum auctor, ligula felis egestas lorem, sed imperdiet massa elit in nibh. Integer vitae posuere leo, eu iaculis ex. Morbi eu aliquet nibh. Cras sit amet magna elit. In mauris libero, malesuada eu erat eu, accumsan congue massa. Nullam dictum feugiat lacus vel eleifend. Phasellus tempor ex sit amet posuere dictum. Vivamus quis lacus sed magna luctus lobortis. Mauris eu elit eu nulla aliquam lobortis ut eu orci. Duis et lectus in magna volutpat efficitur. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut vestibulum lacinia eros. Suspendisse potenti. Phasellus dictum ultricies orci, vitae tempus lorem. Donec quis imperdiet nibh. Mauris blandit facilisis lorem nec volutpat.</p>
+            <div class="close-button">
+                <i class="far fa-times-circle"></i>
+            </div>
+
+           <div class="trees">
+               <i class="fas fa-tree color-1"></i>
+               <i class="fas fa-tree color-2"></i>
+               <i class="fas fa-tree color-1"></i>
+               <i class="fas fa-tree color-3"></i>
+               <i class="fas fa-tree color-2"></i>
+           </div>
+
+        </div>
+
+
+        <!-- next level info to popup by JS -->
+        <div id="result" class="container popup">
+            <!-- CORRECT             -->
+           <p class="color-3">Correct!</p>
+            <p>Let's move one to the next level.</p>
+            <button type="submit" class="button-submit">Next level</button>
+
+            <!--GAME OVER-->
+<!--             <p class="color-7">Wrong! Game Over!<p>
+            <p>Your score is: {{score}}</p>
+            <p>Do you want to play again?</p>
+            <button type="submit" class="button-submit">New game</button>  -->
+            <div class="trees">
+                <i class="fas fa-tree color-1"></i>
+                <i class="fas fa-tree color-2"></i>
+                <i class="fas fa-tree color-1"></i>
+                <i class="fas fa-tree color-3"></i>
+                <i class="fas fa-tree color-2"></i>
+            </div>
+        </div>
+
+        <!-- highscores to popup by JS -->
+        <div id="highscores" class="container popup">
+
+            <p>Highscores</p>
+
+            <table border="1">
+                <thead>
+                    <tr>
+                        {% for i in range(PLAYER_HEADERS|length) %}
+                            <th>
+                                {{ PLAYER_HEADERS[i] }}
+                            </th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for player in all_players %}
+                        <tr>
+                            {% for key in PLAYER_KEYS %}
+                                <td>
+                                    {{ player[key] }}
+                                </td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="close-button"><i class="far fa-times-circle"></i></div>
+            <div class="trees">
+                <i class="fas fa-tree color-1"></i>
+                <i class="fas fa-tree color-2"></i>
+                <i class="fas fa-tree color-1"></i>
+                <i class="fas fa-tree color-3"></i>
+                <i class="fas fa-tree color-2"></i>
+            </div>
+
+        </div>
+
+        <!-- authors to popup by JS -->
+        <div id="authors" class="container popup">
+
+            <p>Authors of this fabulous game</p>
+
+            <p>Joanna Rzeszótko </p>
+            <p>Ewa Żeleńska-Olczak </p>
+            <p>Piotr Wójcik </p>
+            <p>Jakub Zieliński </p>
+
+            <div class="close-button">
+                <i class="far fa-times-circle"></i>
+            </div>
+            <div class="trees">
+                <i class="fas fa-tree color-1"></i>
+                <i class="fas fa-tree color-2"></i>
+                <i class="fas fa-tree color-1"></i>
+                <i class="fas fa-tree color-3"></i>
+                <i class="fas fa-tree color-2"></i>
+            </div>
+
+        </div>
+
+
+
+
+        <div id="game" class="container">
+            <!-- tree icon: <i class="fas fa-tree"></i> -->
+
+            <!-- js: mix randomly slots to make unique boards-->
+            <!-- first board 5x5 -->
+            <div class="container game-counters">
+                <!-- time counter by JS -->
+                <div id="time" class="container">
+                    <p>Time: 05:00<p>
+                </div>
+
+                <!-- score counter by JS -->
+                <div id="score" class="container">
+                    <p>Score: 103 <i class="fas fa-tree"></i><p>
+                </div>
+            </div>
+
+            <div id="forests" class="container">
+                <!-- <div class="row row-cols-1""> -->
+
+                    <div id="forest1" class="container">
+                        <div id="hint-forest1" class="forest-title color-7">Forest 1</div>
+                        <!-- there're 25 slots total, 4 to guess & 21 trees - maybe only one tree and js duplicate it? -->
+                        <div id="forest1-slots" class="forest-slots">
+                            <!-- <div class="row row-cols-5"> -->
+
+                            <!-- </div> -->
+                        </div>
+                    </div>
+
+                    <div id="forest2" class="container">
+                        <div id="hint-forest2" class="forest-title color-3">Forest 2</div>
+                        <div id="forest2-slots" class="forest-slots">
+                            <!-- <div class="row row-cols-5"> -->
+
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                <!-- </div> -->
+            </div>
+
+            <div class="forest-test2">
+                <div class="tree slot color-1"><i class="fas fa-tree"></i></div>
+                <div class="tree slot color-2"><i class="fas fa-tree"></i></div>
+                <div class="tree slot color-3"><i class="fas fa-tree"></i></div>
+            </div>
+
+            <!-- js: choose randomly some of those cards: -->
+            <div id="mixed-cards" class="mixed-cards container">
+                <div id="leaf1" draggable="true" class="card color-5"><i class="fab fa-canadian-maple-leaf"></i></div>
+                <div id="leaf2" draggable="true" class="card color-2"><i class="fab fa-pagelines"></i></div>
+                <div id="paw" draggable="true" class="card color-6"><i class="fas fa-paw"></i></div>
+                <div id="frog" draggable="true" class="card color-3"><i class="fas fa-frog"></i></div>
+                <div id="feather1" draggable="true" class="card color-8"><i class="fas fa-feather"></i></div>
+                <div id="feather2" draggable="true" class="card color-4"><i class="fas fa-feather-alt"></i></div>
+                <div id="crow" draggable="true" class="card color-8"><i class="fas fa-crow"></i></div>
+                <div id="bird" draggable="true" class="card color-6"><i class="fas fa-dove"></i></div>
+                <div id="otter" draggable="true" class="card color-6"><i class="fas fa-otter"></i></div>
+                <div id="spider" draggable="true" class="card color-8"><i class="fas fa-spider"></i></div>
+                <div id="seeding" draggable="true" class="card color-2"><i class="fas fa-seedling"></i></div>
+                <div id="binoculars" draggable="true" class="card color-7"><i class="fas fa-binoculars"></i></div>
+                <div id="bike" draggable="true" class="card color-5"><i class="fas fa-biking"></i></div>
+                <div id="tent" draggable="true" class="card color-7"><i class="fas fa-campground"></i></div>
+                <div id="human" draggable="true" class="card color-4"><i class="fas fa-hiking"></i></div>
+                <div id="apple" draggable="true" class="card color-7"><i class="fas fa-apple-alt"></i></div>
+            </div>
+        </div>
+
+<!--         Required for bootstrap: -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    </div>
+
+    <div id="footer" class="container">
+            <footer>2020 Joanna Rzeszótko, Ewa Żeleńska-Olczak, Piotr Wójcik, Jakub Zieliński
+            </footer>
+        </div>
+</body>
+</html>
+

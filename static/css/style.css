@@ -1,0 +1,353 @@
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 10px;
+}
+
+body {
+    height: 100vh;
+    min-height: 100%;
+    background-color: #f6f7ec;
+/*     overflow: scroll; */
+}
+
+nav {
+    font-size: 1.6rem;
+    z-index: 1;
+}
+
+.dropdown-menu {
+    font-size: 1.4rem;
+}
+
+nav li {
+    margin-left: 10px;
+}
+
+.navbar-brand {
+    font-size: 2rem;
+    color: #2F6B1B;
+}
+
+.navbar-brand:first-letter {
+    color: #A3B82E;
+}
+
+#forests, #mixed-cards {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 3vh auto;
+    padding: 0;
+/*     overflow: auto; */
+}
+
+#forests {
+    min-height: 50vh;
+}
+
+#mixed-cards {
+    min-height: 15vh;
+    font-size: 30px;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.card {
+    max-height: 50px;
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    width: 12%;
+}
+
+#forest1, #forest2 {
+    margin: 0 auto;
+    padding: 0;
+    width: 45%;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.forest-slots {
+/*     height: 80%; */
+    width: 100%;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 15px;
+
+    background-color: #e5ecbc;
+    font-size: 40px;
+    border-radius: 10px;
+
+}
+
+.slot {
+    justify-self: center;
+    align-self: center;
+}
+
+.forest-title {
+    margin: 5px;
+    font-size: 2rem;
+    text-transform: capitalize;
+    text-align: center;
+    height: 15%;
+
+}
+
+
+.game-counters {
+    display: flex;
+    flex-wrap: wrap;
+}
+/* #time, #score { */
+.game-counters div{
+   margin: 3vh auto;
+   text-align: center;
+   font-size: 2rem;
+   color: #495057;
+   width: 150px;
+   border-radius: 50px;
+}
+
+.game-counters div p {
+    margin: 0;
+}
+
+#time {
+   background-color: #dcb708;
+/*    this color to set when time < 15s: #f76868 */
+}
+
+#score {
+   background-color: #dcb708;
+}
+
+#footer {
+    margin: 0 auto;
+    text-align: center;
+    line-height: 200%;
+    font-size: 1.2rem;
+}
+
+
+
+/*  in js change this one when pop up sth*/
+
+/* #form, #highscores, #rules, #result, #authors */
+.popup {
+    display: none;
+/*     display: block; */
+}
+
+#game {
+/*     visibility: hidden; */
+    visibility: visible;
+    height: 88vh;
+    overflow: auto;
+}
+
+.nav-popup {
+    cursor: pointer;
+}
+
+
+.popup {
+    position: fixed;
+    top: 20vh;
+    left: 0;
+    right: 0;
+    height: 60vh;
+    width: 60vw;
+    padding: 40px;
+    text-align: justify;
+    font-size: 1.6rem;
+    line-height: 170%;
+    background-color: #e5ecbc;
+    border-radius: 10px;
+/*     overflow: auto; */
+    /*     z-index: -1; */
+}
+
+
+#rules {
+    top: 15vh;
+    left: 0;
+    right: 0;
+    height: 70vh;
+    width: 70vw;
+}
+
+#rules p {
+    max-height: 75%;
+    overflow: scroll;
+}
+
+.close-button {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: #A83229;
+    font-size: 2.4rem;
+    cursor: pointer;
+
+    transition: 0.5s transform;
+}
+
+.close-button:hover {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+}
+
+input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    width: 100%;
+    margin: 0 auto;
+}
+
+input:focus {
+    outline: none;
+    border-bottom: 2px solid black;
+}
+
+button {
+    font-size: 1.4rem;
+    background-color: #dcb708;
+    border: none;
+    border-radius: 10px;
+    margin: 15px 0;
+    padding: 3px 10px;
+}
+
+.button-submit:focus {
+    outline: none;
+    background-color: #ffc107;
+}
+
+
+.trees {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 80%;
+    font-size: 25px;
+    text-align: center;
+}
+
+.trees i {
+    width: 15%;
+}
+
+label, .popup p:first-child {
+    font-size: 2.5rem;
+    margin: 15px 0 25px;
+}
+
+
+.color-1 {
+    color: #5F6B1B;
+}
+
+.color-2 {
+    color: #A3B82E;
+}
+
+.color-3 {
+    color: #2F6B1B;
+}
+
+.color-4 {
+    color: #dcb708;
+}
+
+.color-5 {
+    color: #DB9332;
+}
+
+.color-6 {
+    color: #885c2f;
+}
+
+.color-7 {
+    color: #A83229;
+}
+
+.color-8 {
+    color: #1D2927;
+}
+
+
+form {
+    height: 80%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.second-player {
+    display: none;
+}
+
+
+/* do celÃ³w tylko testowych
+.test {
+    color : #f013c9
+}*/
+
+
+
+
+.forest-test2 {
+    display: none;
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 360px) {
+    .forest-slots {
+        font-size: 35px;
+    }
+
+    .card {
+        font-size: 23px;
+    }
+
+    .popup, #rules {
+        width: 90vw;
+    }
+
+    .forest-title {
+        font-size: 18px;
+    }
+
+    #game {
+        height: 85vh;
+    }
+
+    footer {
+        font-size: 8px;
+    }
+
+}
