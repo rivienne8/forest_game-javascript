@@ -1,6 +1,7 @@
 # Freestyle JavaScript Game
 
 _Project developed in November 2020 (group project during Codecool course)_
+_Developers: Ewa Żeleńska-Olczak, Joanna Rzeszótko-Doniec, Jakub Zieliński, Piotr Wójcik_
 
 
 ![start](printscreens/start.png)
