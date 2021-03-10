@@ -1,5 +1,8 @@
 # Freestyle JavaScript Game
 
+_Project developed in November 2020 (group project during Codecool course)_
+
+
 ![start](printscreens/start.png)
 
 
